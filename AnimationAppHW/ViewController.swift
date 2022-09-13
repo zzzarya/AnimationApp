@@ -19,9 +19,12 @@ final class ViewController: UIViewController {
     @IBOutlet var forceLabel: UILabel!
     @IBOutlet var durationLabel: UILabel!
     @IBOutlet var delayLabel: UILabel!
+    @IBOutlet var springAnimationLabel: SpringButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        coreAnimationView.layer.cornerRadius = 10
+        springAnimationLabel.layer.cornerRadius = 10
         
         setupLabels()
     }
@@ -29,12 +32,23 @@ final class ViewController: UIViewController {
     @IBAction func runSpringAnimation(_ sender: SpringButton) {
         if index < animations.count {
             presetLabel.text = animations[index].preset
+            coreAnimationView.animation = animations[index].preset
+            
             curveLabel.text = animations[index].curve
+            coreAnimationView.curve = animations[index].curve
+            
             forceLabel.text = String(format: "%.2f", animations[index].force)
+            coreAnimationView.force = animations[index].force
+            
             durationLabel.text = String(format: "%.2f", animations[index].duration)
+            coreAnimationView.duration = animations[index].duration
+            
             delayLabel.text = String(format: "%2.f", animations[index].delay)
+            coreAnimationView.delay = animations[index].delay
             
+            springAnimationLabel.setTitle("Run \(animations[index + 1].preset)", for: .normal)
             
+            coreAnimationView.animate()
             
             index += 1
         } else {

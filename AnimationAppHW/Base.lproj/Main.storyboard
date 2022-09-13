@@ -30,8 +30,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbR-Nj-arS" customClass="SpringView" customModule="SpringAnimation">
                                 <rect key="frame" x="87" y="147" width="240" height="138"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NOr-DA-Mnr">
-                                        <rect key="frame" x="8" y="7" width="112.5" height="122.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NOr-DA-Mnr">
+                                        <rect key="frame" x="15" y="8" width="112.5" height="122.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="lLH-fV-iKy">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="20.5"/>
@@ -124,7 +124,14 @@
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="138" id="ERg-hH-xuK"/>
+                                    <constraint firstItem="NOr-DA-Mnr" firstAttribute="leading" secondItem="jbR-Nj-arS" secondAttribute="leading" constant="15" id="qAE-kd-hfQ"/>
+                                    <constraint firstItem="NOr-DA-Mnr" firstAttribute="top" secondItem="jbR-Nj-arS" secondAttribute="top" constant="8" id="qWY-WZ-bcY"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -145,6 +152,7 @@
                         <outlet property="durationLabel" destination="5fw-zS-CiK" id="Mhh-G8-INn"/>
                         <outlet property="forceLabel" destination="n8I-NK-zog" id="tKQ-aI-ool"/>
                         <outlet property="presetLabel" destination="rT2-N2-lvg" id="fQg-Hj-zvU"/>
+                        <outlet property="springAnimationLabel" destination="WLs-Cx-9sH" id="G1L-Kh-8xz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
