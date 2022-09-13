@@ -11,6 +11,7 @@ import SpringAnimation
 final class ViewController: UIViewController {
     
     private let animations = Animation.getAnimations()
+    var index = 0
 
     @IBOutlet var coreAnimationView: SpringView!
     @IBOutlet var presetLabel: UILabel!
@@ -21,15 +22,37 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setupLabels()
     }
 
     @IBAction func runSpringAnimation(_ sender: SpringButton) {
-        for index in 0..<animations.count {
+        if index < animations.count {
+            presetLabel.text = animations[index].preset
+            curveLabel.text = animations[index].curve
+            forceLabel.text = String(format: "%.2f", animations[index].force)
+            durationLabel.text = String(format: "%.2f", animations[index].duration)
+            delayLabel.text = String(format: "%2.f", animations[index].delay)
             
+            
+            
+            index += 1
+        } else {
+            index = 0
         }
+        
     }
-    
+}
+
+
+extension ViewController {
+    private func setupLabels() {
+        presetLabel.text = animations.first?.preset
+        curveLabel.text = animations.first?.curve
+        forceLabel.text = String(format: "%.2f", animations.first?.force ?? 0)
+        durationLabel.text = String(format: "%.2f", animations.first?.duration ?? 0)
+        delayLabel.text = String(format: "%2.f", animations.first?.delay ?? 0)
+    }
 }
 
 
