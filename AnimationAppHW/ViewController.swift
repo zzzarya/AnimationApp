@@ -26,8 +26,6 @@ final class ViewController: UIViewController {
         coreAnimationView.layer.cornerRadius = 10
         springAnimationLabel.layer.cornerRadius = 10
         
-        print(animations.count)
-        print(animations)
         setupLabels()
     }
 
