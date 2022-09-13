@@ -20,9 +20,12 @@
                                 <rect key="frame" x="87" y="733" width="240" height="30"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Run">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="runSpringAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZOT-PC-cZH"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbR-Nj-arS" customClass="SpringView" customModule="SpringAnimation">
                                 <rect key="frame" x="87" y="147" width="240" height="138"/>
@@ -135,6 +138,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WLs-Cx-9sH" secondAttribute="bottom" constant="99" id="omr-Ja-3Un"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="coreAnimationView" destination="jbR-Nj-arS" id="dQi-FQ-MFg"/>
+                        <outlet property="curveLabel" destination="ScC-lY-fyt" id="hEL-8K-B8A"/>
+                        <outlet property="delayLabel" destination="8FM-mS-xgj" id="emx-5z-W41"/>
+                        <outlet property="durationLabel" destination="Vek-Tr-9To" id="zCF-J1-CFB"/>
+                        <outlet property="forceLabel" destination="7yX-Z8-IGV" id="0Vf-8c-CVh"/>
+                        <outlet property="presetLabel" destination="ScC-lY-fyt" id="b2c-3K-583"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
