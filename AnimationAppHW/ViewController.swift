@@ -26,6 +26,8 @@ final class ViewController: UIViewController {
         coreAnimationView.layer.cornerRadius = 10
         springAnimationLabel.layer.cornerRadius = 10
         
+        print(animations.count)
+        print(animations)
         setupLabels()
     }
 
@@ -46,18 +48,23 @@ final class ViewController: UIViewController {
             delayLabel.text = String(format: "%2.f", animations[index].delay)
             coreAnimationView.delay = animations[index].delay
             
-            springAnimationLabel.setTitle("Run \(animations[index + 1].preset)", for: .normal)
+            if index == animations.count - 1 {
+                springAnimationLabel.setTitle("Run \(animations.first?.preset ?? "")", for: .normal)
+            } else {
+                springAnimationLabel.setTitle("Run \(animations[index + 1].preset)", for: .normal)
+            }
             
             coreAnimationView.animate()
             
             index += 1
+            print(index)
         } else {
             index = 0
+            springAnimationLabel.setTitle("Run \(animations[index].preset)", for: .normal)
         }
         
     }
 }
-
 
 extension ViewController {
     private func setupLabels() {
