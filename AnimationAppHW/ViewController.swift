@@ -55,12 +55,10 @@ final class ViewController: UIViewController {
             coreAnimationView.animate()
             
             index += 1
-            print(index)
+ 
         } else {
             index = 0
-            springAnimationLabel.setTitle("Run \(animations[index].preset)", for: .normal)
         }
-        
     }
 }
 

@@ -8,7 +8,6 @@
 import Foundation
 import SpringAnimation
 
-
 struct Animation {
     let preset: String
     let curve: String
