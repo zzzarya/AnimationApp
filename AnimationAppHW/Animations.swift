@@ -21,8 +21,8 @@ extension Animation {
         let dataStore = DataStore.shared
         var animations: [Animation] = []
         
-        let presets = dataStore.AnimationPresets.shuffled()
-        let curves = dataStore.AnimationCurves.shuffled()
+        let presets = dataStore.animationPresets.shuffled()
+        let curves = dataStore.animationCurves.shuffled()
         
         for index in 0..<presets.count {
             let animation = Animation(preset: presets[index].rawValue,

@@ -11,8 +11,8 @@ import SpringAnimation
 class DataStore {
     static let shared = DataStore()
     
-    let AnimationPresets = AnimationPreset.allCases
-    let AnimationCurves = AnimationCurve.allCases
+    let animationPresets = AnimationPreset.allCases
+    let animationCurves = AnimationCurve.allCases
 
     private init() {}
 }

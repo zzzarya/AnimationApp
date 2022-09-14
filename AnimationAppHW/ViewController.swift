@@ -10,9 +10,6 @@ import SpringAnimation
 
 final class ViewController: UIViewController {
     
-    private let animations = Animation.getAnimations()
-    var index = 0
-
     @IBOutlet var coreAnimationView: SpringView!
     @IBOutlet var presetLabel: UILabel!
     @IBOutlet var curveLabel: UILabel!
@@ -20,6 +17,9 @@ final class ViewController: UIViewController {
     @IBOutlet var durationLabel: UILabel!
     @IBOutlet var delayLabel: UILabel!
     @IBOutlet var springAnimationLabel: SpringButton!
+    
+    private let animations = Animation.getAnimations()
+    private var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,47 +30,33 @@ final class ViewController: UIViewController {
     }
 
     @IBAction func runSpringAnimation(_ sender: SpringButton) {
-        if index < animations.count {
-            presetLabel.text = animations[index].preset
+        
+        if index == animations.count - 1 {
+            springAnimationLabel.setTitle("Run \(animations.first?.preset ?? "")", for: .normal)
+            index = 0
+        } else if index < animations.count {
             coreAnimationView.animation = animations[index].preset
-            
-            curveLabel.text = animations[index].curve
             coreAnimationView.curve = animations[index].curve
-            
-            forceLabel.text = String(format: "%.2f", animations[index].force)
             coreAnimationView.force = animations[index].force
-            
-            durationLabel.text = String(format: "%.2f", animations[index].duration)
             coreAnimationView.duration = animations[index].duration
-            
-            delayLabel.text = String(format: "%2.f", animations[index].delay)
             coreAnimationView.delay = animations[index].delay
-            
-            if index == animations.count - 1 {
-                springAnimationLabel.setTitle("Run \(animations.first?.preset ?? "")", for: .normal)
-            } else {
-                springAnimationLabel.setTitle("Run \(animations[index + 1].preset)", for: .normal)
-            }
-            
             coreAnimationView.animate()
             
+            setupLabels()
+            
             index += 1
- 
-        } else {
-            index = 0
+            
+            springAnimationLabel.setTitle("Run \(animations[index].preset)", for: .normal)
         }
-        
     }
 }
 
 extension ViewController {
     private func setupLabels() {
-        presetLabel.text = animations.first?.preset
-        curveLabel.text = animations.first?.curve
-        forceLabel.text = String(format: "%.2f", animations.first?.force ?? 0)
-        durationLabel.text = String(format: "%.2f", animations.first?.duration ?? 0)
-        delayLabel.text = String(format: "%2.f", animations.first?.delay ?? 0)
+        presetLabel.text = animations[index].preset
+        curveLabel.text = animations[index].curve
+        forceLabel.text = String(format: "%.2f", animations[index].force)
+        durationLabel.text = String(format: "%.2f", animations[index].duration)
+        delayLabel.text = String(format: "%2.f", animations[index].delay)
     }
 }
-
-
